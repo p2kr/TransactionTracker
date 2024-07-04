@@ -364,3 +364,5 @@ FodyWeavers.xsd
 
 # Secrets
 **/Assets/client_secrets.json
+
+**/logs

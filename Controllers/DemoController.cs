@@ -13,13 +13,13 @@ namespace TransactionTracker.Controllers
         {
             try
             {
-                var emails = GmailConnector2.ConnectToGmail();
+                var config = new ConnectorConfig();
+                var emails = GmailConnector2.ConnectToGmail(config);
                 emails.Wait();
                 return Json(emails.Result);
             }
             catch (Exception ex)
             {
-                //return Problem(title: ex.Message, detail: ex.StackTrace);
                 return ErrorHandlers.ErrorResult(ex);
             }
         }

@@ -2,6 +2,7 @@
 using Google.Apis.Gmail.v1;
 using Google.Apis.Gmail.v1.Data;
 using Google.Apis.Util.Store;
+using Serilog;
 using System.Diagnostics;
 using System.Text;
 
@@ -9,8 +10,6 @@ namespace TransactionTracker.Utils
 {
 	public static class GmailConnector2
 	{
-		private static readonly ILogger Log = CustomLogger.GetLogger(typeof(GmailConnector2));
-
 		/// <summary>
 		/// Connect to Gmail service and fetch emails
 		/// </summary>
@@ -43,7 +42,7 @@ namespace TransactionTracker.Utils
 						await GetAllMessages(listOfMessages, service, msg);
 					}
 				}
-				Log.LogInformation("Found {N} messages in {Timespan}", listOfMessages.Count, watch.Elapsed);
+				Log.Information("Found {N} messages in {Timespan}", listOfMessages.Count, watch.Elapsed);
 			}
 			return listOfMessages;
 		}
@@ -77,7 +76,8 @@ namespace TransactionTracker.Utils
 			}
 			catch (Exception ex)
 			{
-				Log.LogError(ex, "Error in {Snippet}", msg.Snippet);
+
+				Log.Error(ex, "Error in {Snippet}", msg.Snippet);
 			}
 		}
 

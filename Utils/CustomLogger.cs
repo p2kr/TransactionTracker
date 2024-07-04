@@ -1,17 +1,16 @@
-﻿namespace TransactionTracker.Utils
+﻿using Serilog;
+
+namespace TransactionTracker.Utils
 {
-    public static class CustomLogger
-    {
-
-        private static readonly ILoggerFactory loggerFactory = LoggerFactory.Create(builder => builder.AddConsole());
-        public static ILogger<T> GetLogger<T>()
-        {
-            return loggerFactory.CreateLogger<T>();
-        }
-
-        public static ILogger GetLogger(Type type)
-        {
-            return loggerFactory.CreateLogger(type);
-        }
-    }
+	public static class CustomLogger
+	{
+		public static void ConfigureLogger()
+		{
+			Log.Logger = new LoggerConfiguration()
+			.MinimumLevel.Information()
+			.WriteTo.Console()
+			.WriteTo.File("logs/logs.log", rollingInterval: RollingInterval.Day)
+			.CreateLogger();
+		}
+	}
 }
