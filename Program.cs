@@ -1,4 +1,4 @@
-using TransactionTracker.Utils;
+using TransactionTracker.src.Utils;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +14,7 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+	System.Environment.SetEnvironmentVariable("IsDevelopment", "true");
 	app.UseSwagger();
 	app.UseSwaggerUI();
 }

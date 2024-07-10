@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
-namespace TransactionTracker.Utils
+namespace TransactionTracker.src.Utils
 {
     public static class ErrorHandlers
     {

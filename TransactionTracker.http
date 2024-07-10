@@ -1,6 +1,6 @@
 @TransactionTracker_HostAddress = http://localhost:5047
 
-GET {{TransactionTracker_HostAddress}}/weatherforecast/
+GET {{TransactionTracker_HostAddress}}/demo/Demo
 Accept: application/json
 
 ###
