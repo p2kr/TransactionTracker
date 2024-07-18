@@ -366,3 +366,4 @@ FodyWeavers.xsd
 **/Assets/client_secrets.json
 
 /logs
+TransactionTracker - Backup.csproj

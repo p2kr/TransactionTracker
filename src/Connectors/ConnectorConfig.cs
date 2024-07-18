@@ -11,5 +11,6 @@ namespace TransactionTracker.src.Connectors
 		public int MaxResults { get; set; } = 10;
 		public bool IncludeSpamTrash { get; set; } = true;
 		public string Labels { get; set; } = "INBOX";
+		public string? Query { get; set; }
 	}
 }
